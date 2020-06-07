@@ -1,10 +1,15 @@
-import React from 'react';
 import { shallow } from 'enzyme';
-import Sample from '../dist';
+import React from 'react';
+import StyledText from '../dist';
 
-describe('Sample', () => {
-    it('contains "the greeting" message', () => {
-        const component = shallow(<Sample color="green" />);
-        expect(component.text()).toContain('Hi Content Creator');
+describe('StyledText', () => {
+    it('renders children properly', () => {
+        const children = 'Sample Text';
+        const component = shallow(
+            <StyledText bold center>
+                {children}
+            </StyledText>
+        );
+        expect(component.text()).toContain(children);
     });
 });
