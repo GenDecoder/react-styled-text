@@ -3,14 +3,14 @@ import React from 'react';
 import StyledText from '../dist';
 
 describe('StyledText', () => {
-    it('renders children properly', () => {
-        const children = 'Sample Text';
+    it('renders text properly', () => {
+        const text = 'Sample Text';
         const component = shallow(
             <StyledText bold center>
-                {children}
+                {text}
             </StyledText>
         );
-        expect(component.text()).toContain(children);
+        expect(component.text()).toBe(text);
     });
     it('renders with passed "tag"', () => {
         const component = shallow(<StyledText tag="h1" />);

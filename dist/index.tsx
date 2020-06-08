@@ -1,7 +1,7 @@
 import React from 'react';
 import './styles.css';
-import { getSpace } from './utils';
 import { TStyledTextProps } from './types';
+import { getSpace } from './utils';
 
 const StyledText = ({
     bold,
@@ -15,9 +15,9 @@ const StyledText = ({
     hasRightSpace,
     highlighColor,
     indent,
-    lineSpacing,
     letterSpacing,
-    marginTop = 0,
+    lineSpacing,
+    marginTop,
     numberOfLines,
     selectable = true,
     style,
@@ -33,16 +33,16 @@ const StyledText = ({
             className={`styled-text ${className || ''}`}
             style={{
                 ...{
-                    backgroundColor: highlighColor || 'inherit',
-                    color: color || 'inherit',
-                    fontFamily: fontFamily || 'inherit',
-                    fontSize: fontSize || 'inherit',
-                    fontWeight: bold ? 'bold' : 'normal',
-                    lineHeight: lineSpacing || 'inherit',
-                    letterSpacing: letterSpacing || 'inherit',
-                    marginTop,
-                    textAlign: center ? 'center' : 'inherit',
-                    textTransform: uppercase ? 'uppercase' : 'none',
+                    ...(bold && { fontWeight: 'bold' }),
+                    ...(center && { textAlign: 'center' }),
+                    ...(color && { color }),
+                    ...(fontFamily && { fontFamily }),
+                    ...(fontSize && { fontSize }),
+                    ...(highlighColor && { backgroundColor: highlighColor }),
+                    ...(letterSpacing && { letterSpacing }),
+                    ...(lineSpacing && { lineHeight: lineSpacing }),
+                    ...(marginTop && { marginTop }),
+                    ...(uppercase && { textTransform: 'uppercase' }),
                     ...(numberOfLines && {
                         display: '-webkit-box',
                         WebkitLineClamp: numberOfLines,
