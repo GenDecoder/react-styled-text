@@ -3,11 +3,6 @@
     padding: 0;
     text-decoration: none;
 }
-.styled-text-indent {
-    float: left;
-    height: 1;
-}
-
 /* Set in the global css file */
 a {
     text-decoration: none;
