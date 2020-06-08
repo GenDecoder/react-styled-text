@@ -1,5 +1,6 @@
 import React from 'react';
 import './styles.css';
+import { getSpace } from './utils';
 import { TStyledTextProps } from './types';
 
 const StyledText = ({
@@ -8,17 +9,19 @@ const StyledText = ({
     children,
     className,
     color,
+    fontFamily,
     fontSize,
     hasLeftSpace,
     hasRightSpace,
     highlighColor,
     indent,
-    indentSize = 48, // Equivalent to the standard 1/2 in. for indentation
     lineSpacing,
     letterSpacing,
+    marginTop = 0,
     numberOfLines,
     selectable = true,
     style,
+    tabSize = 4,
     tag = 'span',
     uppercase,
     ...others
@@ -32,10 +35,12 @@ const StyledText = ({
                 ...{
                     backgroundColor: highlighColor || 'inherit',
                     color: color || 'inherit',
-                    fontWeight: bold ? 'bold' : 'normal',
+                    fontFamily: fontFamily || 'inherit',
                     fontSize: fontSize || 'inherit',
+                    fontWeight: bold ? 'bold' : 'normal',
                     lineHeight: lineSpacing || 'inherit',
                     letterSpacing: letterSpacing || 'inherit',
+                    marginTop,
                     textAlign: center ? 'center' : 'inherit',
                     textTransform: uppercase ? 'uppercase' : 'none',
                     ...(numberOfLines && {
@@ -57,10 +62,10 @@ const StyledText = ({
             }}
             {...others}
         >
-            {indent && <span className="styled-text-indent" style={{ width: indentSize }} />}
-            {hasLeftSpace && ' '}
+            {indent && getSpace(tabSize)}
+            {hasLeftSpace && getSpace()}
             {children}
-            {hasRightSpace && ' '}
+            {hasRightSpace && getSpace()}
         </TextTag>
     );
 };
