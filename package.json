@@ -1,6 +1,6 @@
 {
     "name": "react-styled-text",
-    "version": "0.0.5",
+    "version": "0.0.6",
     "description": "Text tool to help you build typography",
     "main": "dist/index.tsx",
     "types": "dist/index.d.ts",
