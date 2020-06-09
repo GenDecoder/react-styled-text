@@ -1,6 +1,9 @@
 {
     "compilerOptions": {
         "target": "es5",
+        "lib": [
+            "ES2015"
+        ],
         "module": "commonjs",
         "declaration": true,
         "outDir": "lib",
@@ -12,4 +15,7 @@
     "include": [
         "../dist"
     ],
+    "exclude": [
+        "*.d.ts"
+    ]
 }
