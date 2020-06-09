@@ -27,7 +27,7 @@ const StyledText = ({
     ...others
 }: TStyledTextProps) => {
     const TextTag = `${tag}` as keyof JSX.IntrinsicElements;
-    let customStyles: CSSProperties = {};
+    const customStyles: CSSProperties = {};
 
     bold && (customStyles.fontWeight = 'bold');
     center && (customStyles.textAlign = 'center');
