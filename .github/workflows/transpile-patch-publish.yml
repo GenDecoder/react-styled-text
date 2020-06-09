@@ -13,6 +13,11 @@ jobs:
         steps:
             - uses: actions/checkout@v2
 
+            - name: Use Node.js 12
+              uses: actions/setup-node@v1
+              with:
+                node-version: 12
+
             - name: Install temporal dependencies
               run: yarn add --dev typescript @types/react @types/react-dom
 
